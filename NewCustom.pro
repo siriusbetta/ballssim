@@ -31,7 +31,8 @@ SOURCES += \
     circle.cpp \
     mycustomscene.cpp \
     ball.cpp \
-    coordinates.cpp
+    coordinates.cpp \
+    ballscontainer.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -40,7 +41,8 @@ HEADERS += \
     circle.h \
     mycustomscene.h \
     ball.h \
-    coordinates.h
+    coordinates.h \
+    ballscontainer.h
 
 FORMS += \
         mainwindow.ui

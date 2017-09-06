@@ -3,18 +3,21 @@
 
 #include <QGraphicsScene>
 
-#include <circle.h>
+#include <ballscontainer.h>
+#include <ball.h>
 
 class MyCustomScene : public QGraphicsScene
 {
     Q_OBJECT
 public:
     explicit MyCustomScene(QObject *parent = 0);
+    MyCustomScene(BallsContainer *balls);
+
     ~MyCustomScene();
 
-    Circle *circle;
+    Ball *ball;
 
-
+    BallsContainer *p_balls;
 
 protected:
     void mousePressEvent(QGraphicsSceneMouseEvent *event);

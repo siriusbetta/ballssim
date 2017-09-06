@@ -3,7 +3,9 @@
 
 ViewWindow::ViewWindow( QWidget *parent) : QGraphicsView(parent)
 {
-    scene = new MyCustomScene();
+    balls = new BallsContainer();
+
+    scene = new MyCustomScene(balls);
     //triangle = new Traingle();
 
     setScene(scene);

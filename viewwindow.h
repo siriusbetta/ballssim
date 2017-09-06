@@ -2,10 +2,12 @@
 #define VIEWWINDOW_H
 
 #include <QGraphicsView>
+
+#include <map>
+
 #include <viewwindow.h>
-#include <traingle.h>
-#include <circle.h>
 #include <mycustomscene.h>
+#include <ballscontainer.h>
 
 class ViewWindow : public QGraphicsView
 {
@@ -15,9 +17,7 @@ public:
     ~ViewWindow();
 
     QGraphicsScene *scene;
-    Traingle *triangle;
-    Circle *circ;
-
+    BallsContainer *balls;
 };
 
 #endif // VIEWWINDOW_H
