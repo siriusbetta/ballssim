@@ -8,6 +8,7 @@
 #include <viewwindow.h>
 #include <mycustomscene.h>
 #include <ballscontainer.h>
+#include <coordiantescontainer.h>
 
 class ViewWindow : public QGraphicsView
 {
@@ -18,6 +19,7 @@ public:
 
     QGraphicsScene *scene;
     BallsContainer *balls;
+    CoordiantesContainer *coordiantes;
 };
 
 #endif // VIEWWINDOW_H

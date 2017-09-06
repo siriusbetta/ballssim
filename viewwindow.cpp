@@ -4,8 +4,9 @@
 ViewWindow::ViewWindow( QWidget *parent) : QGraphicsView(parent)
 {
     balls = new BallsContainer();
+    coordiantes = new CoordiantesContainer();
 
-    scene = new MyCustomScene(balls);
+    scene = new MyCustomScene(balls, coordiantes);
     //triangle = new Traingle();
 
     setScene(scene);
@@ -15,7 +16,7 @@ ViewWindow::ViewWindow( QWidget *parent) : QGraphicsView(parent)
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     //scene->setSceneRect(-300, -300, 600, 600);
-    scene->setSceneRect(0, 0, this->width() - 20, this->height() - 20);
+    scene->setSceneRect(0, 0, this->width() - 50, this->height() - 50);
 
 }
 
