@@ -25,9 +25,14 @@ Coordinates* CoordiantesContainer::getCoordinates(int id)
     return it->second;
 }
 
+int CoordiantesContainer::length()
+{
+    return allCoordinates.size();
+}
+
 bool CoordiantesContainer::isAvaiblePos(Coordinates *c)
 {
-    return isPlaceCompareOtherBalls(c) || isPlaceCompareWalls(c);
+    return isPlaceCompareOtherBalls(c);// || isPlaceCompareWalls(c);
 }
 
 bool CoordiantesContainer::isPlaceCompareOtherBalls(Coordinates *c)
@@ -35,7 +40,7 @@ bool CoordiantesContainer::isPlaceCompareOtherBalls(Coordinates *c)
     std::map<int, Coordinates*>::iterator it;
     for(it = allCoordinates.begin(); it != allCoordinates.end(); ++it)
     {
-        if(compareTwoCoordiantes(it->second, c))
+        if(!compareTwoCoordiantes(it->second, c))
           return false;
     }
 
@@ -44,13 +49,14 @@ bool CoordiantesContainer::isPlaceCompareOtherBalls(Coordinates *c)
 
 bool CoordiantesContainer::isPlaceCompareWalls(Coordinates *c)
 {
-    return c->getX() < 25 || c->getX() > 575 || c->getY() < 25 || c->getY() > 575;
+    int rangeToX0Wall = Coordinates::lengthBetweenTwoPoints(c, new Coordinates(0, c->getY()));
+    int rangeToY0Wall = Coordinates::lengthBetweenTwoPoints(c, new Coordinates(c->getX(), 0));
+    int rangeToXMaxWall = Coordinates::lengthBetweenTwoPoints(c, new Coordinates(500, c->getY()));
+    int rangeToYMaxWall = Coordinates::lengthBetweenTwoPoints(c, new Coordinates(c->getX(), 500));
+    return rangeToX0Wall >= 25 && rangeToY0Wall >= 25 && rangeToXMaxWall >= 25 && rangeToYMaxWall >= 25;
 }
 
 bool CoordiantesContainer::compareTwoCoordiantes(Coordinates *c1, Coordinates *c2)
 {
-    if(c1->getX() <= c2->getX() + 25 ||	c1->getY() <= c2->getY() + 25)
-        return false;
-
-    return true;
+    return Coordinates::lengthBetweenTwoPoints(c1, c2) >= 50;
 }

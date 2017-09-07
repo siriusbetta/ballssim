@@ -9,7 +9,7 @@
 #define COORDIANTESCONTAINER_H
 
 #include <map>
-#include <coordinates.h>
+#include "coordinates.h"
 
 class CoordiantesContainer
 {
@@ -33,6 +33,13 @@ public:
      * \return Coordinates возвращает указатель на координаты текущего шара, если нет то вернет последний элемент
      */
     Coordinates * getCoordinates(int id);
+
+    /*!
+     * \brief Returns number of maps
+     *
+     * \return int
+     */
+    int length();
 
     /*!
      * \brief Проверяет допустимость расположение нового шара относительно стен и других шаров

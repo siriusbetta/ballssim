@@ -10,7 +10,9 @@ public:
 
     Coordinates(const Coordinates & c);
 
-    const Coordinates& operator = (const Coordinates& c);
+    //const Coordinates& operator = (const Coordinates& c);
+
+    static int lengthBetweenTwoPoints(Coordinates *c1, Coordinates *c2);
 
     int getX();
     int getY();
