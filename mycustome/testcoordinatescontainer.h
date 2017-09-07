@@ -24,6 +24,8 @@ private slots:
     void testCoordinatsGetting();
     void testIsPlaceCompareOtherBalls();
     void testIsPlaceCompareOtherBalls_data();
+    void testIsAvaiblePos();
+    void testIsAvaiblePos_data();
 };
 
 #endif // TESTCOORDINATESCONTAINER_H

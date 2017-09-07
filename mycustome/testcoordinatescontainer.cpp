@@ -157,3 +157,39 @@ void TestCoordinatescontainer::testIsPlaceCompareOtherBalls_data()
     QTest::newRow("oteh balls coordianate 4") << 100 << 130 << false;
     QTest::newRow("other balls coordianate 5") << 100 << 100 << false;
 }
+
+void TestCoordinatescontainer::testIsAvaiblePos()
+{
+    CoordiantesContainer cont;
+    Coordinates c1(50, 50);
+    Coordinates c2(100, 100);
+    Coordinates c3(150, 150);
+    Coordinates c4(200, 200);
+
+    cont.setCoordinates(1, &c1);
+    cont.setCoordinates(2, &c2);
+    cont.setCoordinates(3, &c3);
+    cont.setCoordinates(4, &c4);
+
+    QFETCH(int, x);
+    QFETCH(int, y);
+    QFETCH(bool, expected);
+    Coordinates c(x, y);
+    QCOMPARE(cont.isAvaiblePos(&c), expected);
+}
+
+void TestCoordinatescontainer::testIsAvaiblePos_data()
+{
+    QTest::addColumn<int>("x");
+    QTest::addColumn<int>("y");
+    QTest::addColumn<bool>("expected");
+    QTest::newRow("other balls coordianate 1") << 300 << 300 << true;
+    QTest::newRow("other balss coordianate 2") << 250 << 250 << true;
+    QTest::newRow("other balss coordianate 3") << 130 << 100 << false;
+    QTest::newRow("oteh balls coordianate 4") << 100 << 130 << false;
+    QTest::newRow("other balls coordianate 5") << 100 << 100 << false;
+    QTest::newRow("wall coordianate 1") << 100 << 100 << false;
+    QTest::newRow("wall coordianate 2") << 220 << 300 << true;
+    QTest::newRow("wall coordianate 3") << 10 << 100 << false;
+    QTest::newRow("wall coordianate 4") << 100 << 10 << false;
+}

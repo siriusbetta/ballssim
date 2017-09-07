@@ -32,7 +32,7 @@ int CoordiantesContainer::length()
 
 bool CoordiantesContainer::isAvaiblePos(Coordinates *c)
 {
-    return isPlaceCompareOtherBalls(c);// || isPlaceCompareWalls(c);
+    return isPlaceCompareOtherBalls(c) && isPlaceCompareWalls(c);
 }
 
 bool CoordiantesContainer::isPlaceCompareOtherBalls(Coordinates *c)
