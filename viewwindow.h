@@ -3,8 +3,6 @@
 
 #include <QGraphicsView>
 
-#include <map>
-
 #include <viewwindow.h>
 #include <mycustomscene.h>
 #include <ballscontainer.h>
