@@ -33,7 +33,8 @@ SOURCES += \
     ball.cpp \
     coordinates.cpp \
     ballscontainer.cpp \
-    coordiantescontainer.cpp
+    coordiantescontainer.cpp \
+    collisions.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -44,7 +45,8 @@ HEADERS += \
     ball.h \
     coordinates.h \
     ballscontainer.h \
-    coordiantescontainer.h
+    coordiantescontainer.h \
+    collisions.h
 
 FORMS += \
         mainwindow.ui

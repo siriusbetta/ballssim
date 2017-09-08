@@ -6,6 +6,7 @@
 #include <ballscontainer.h>
 #include <coordiantescontainer.h>
 #include <ball.h>
+#include "collisions.h"
 
 class MyCustomScene : public QGraphicsScene
 {

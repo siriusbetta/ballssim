@@ -20,7 +20,7 @@ void MyCustomScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
     int x = event->scenePos().x();
     int y = event->scenePos().y();
 
-    if(p_coordiantes->isAvaiblePos(new Coordinates(x, y)))
+    if( Collisions::isAvaiblePos(p_coordiantes, new Coordinates(x, y)))
     {
         ball = new Ball();
         int id = p_balls->getLastId() + 1;
