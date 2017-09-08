@@ -11,6 +11,7 @@ public:
     Coordinates(const Coordinates & c);
 
     //const Coordinates& operator = (const Coordinates& c);
+   // bool operator == (Coordinates& c) const;
 
     static int lengthBetweenTwoPoints(Coordinates *c1, Coordinates *c2);
 

@@ -26,6 +26,15 @@ private slots:
     void testIsPlaceCompareOtherBalls_data();
     void testIsAvaiblePos();
     void testIsAvaiblePos_data();
+
+    void testIsCoordinateLayInTheBall();
+    void testIsCoordinateLayInTheBall_data();
+
+    void testFindBallByCoordinates();
+    void testFindBallByCoordinates_data();
+
+    void testRemoveItem();
+    void testRemoveItem_data();
 };
 
 #endif // TESTCOORDINATESCONTAINER_H

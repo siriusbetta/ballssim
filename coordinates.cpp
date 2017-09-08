@@ -1,5 +1,5 @@
-#include "coordinates.h"
 #include <cmath>
+#include "coordinates.h"
 
 Coordinates::Coordinates(int x, int y) : m_x(x), m_y(y)
 {
@@ -24,6 +24,13 @@ const Coordinates& Coordinates::operator = ( const Coordinates &c)
 }
 */
 
+
+/*
+bool Coordinates::operator == (Coordinates& c) const
+{
+    return m_x == c.m_x && m_y == c.m_y;
+}
+*/
 int Coordinates::getX()
 {
     return m_x;

@@ -36,7 +36,7 @@ void TestCoordinatescontainer::compareTwoCoordinates()
     QFETCH(bool, expected);
     Coordinates c1(x1, y1);
     Coordinates c2(x2, y2);
-    QCOMPARE(cont.compareTwoCoordiantes(&c1, &c2), expected);
+    QCOMPARE(cont.hasEnoughPlaceBetweenTwoBalls(&c1, &c2), expected);
 }
 
 void TestCoordinatescontainer::testChechLengthToTheWalls_data()
@@ -192,4 +192,85 @@ void TestCoordinatescontainer::testIsAvaiblePos_data()
     QTest::newRow("wall coordianate 2") << 220 << 300 << true;
     QTest::newRow("wall coordianate 3") << 10 << 100 << false;
     QTest::newRow("wall coordianate 4") << 100 << 10 << false;
+}
+
+void TestCoordinatescontainer::testIsCoordinateLayInTheBall()
+{
+    CoordiantesContainer cont;
+    QFETCH(int, x1);
+    QFETCH(int, y1);
+    QFETCH(int, x2);
+    QFETCH(int, y2);
+    QFETCH(bool, expected);
+    Coordinates c1(x1, y1);
+    Coordinates c2(x2, y2);
+    QCOMPARE(cont.isCoordinateLayInTheBall(&c1, &c2), expected);
+}
+
+void TestCoordinatescontainer::testIsCoordinateLayInTheBall_data()
+{
+    QTest::addColumn<int>("x1");
+    QTest::addColumn<int>("y1");
+    QTest::addColumn<int>("x2");
+    QTest::addColumn<int>("y2");
+    QTest::addColumn<bool>("expected");
+    QTest::newRow("ball match with ball coordianate 1") << 50 << 50 << 50 << 50 << true;
+    QTest::newRow("ball match with ball coordianate 2") << 100 << 50 << 105 << 55 << true;
+    QTest::newRow("ball match with ball coordianate 3") << 300 << 300 << 100 << 100 << false;
+    QTest::newRow("ball match with ball coordianate 4") << 250 << 150 << 50 << 200 << false;
+}
+
+void TestCoordinatescontainer::testRemoveItem()
+{
+    CoordiantesContainer cont;
+    Coordinates c1(100, 100);
+    Coordinates c2(150, 200);
+    Coordinates c3(300, 350);
+    Coordinates c4(400, 200);
+
+
+    cont.setCoordinates(1, &c1);
+    cont.setCoordinates(2, &c2);
+    cont.setCoordinates(3, &c3);
+    cont.setCoordinates(4, &c4);
+
+    QCOMPARE(cont.length(), 4);
+    Coordinates *c = new Coordinates(105, 100);
+    cont.removeItem(c);
+    QCOMPARE(cont.length(), 3);
+}
+
+void TestCoordinatescontainer::testRemoveItem_data()
+{
+
+}
+
+void TestCoordinatescontainer::testFindBallByCoordinates()
+{
+    CoordiantesContainer cont;
+    Coordinates c1(100, 100);
+    Coordinates c2(150, 200);
+    Coordinates c3(300, 350);
+    Coordinates c4(400, 200);
+
+
+    cont.setCoordinates(1, &c1);
+    cont.setCoordinates(2, &c2);
+    cont.setCoordinates(3, &c3);
+    cont.setCoordinates(4, &c4);
+
+    QCOMPARE(cont.length(), 4);
+    Coordinates *c = new Coordinates(105, 100);
+    QCOMPARE( cont.findBallByCoordinates(c), 1);
+
+    c = new Coordinates(300, 350);
+    QCOMPARE( cont.findBallByCoordinates(c), 3);
+
+    c = new Coordinates(480, 380);
+    QCOMPARE( cont.findBallByCoordinates(c), -1);
+}
+
+void TestCoordinatescontainer::testFindBallByCoordinates_data()
+{
+
 }
