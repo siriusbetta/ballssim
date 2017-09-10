@@ -1,10 +1,8 @@
 #include "physicsthread.h"
 #include "coordinatescontainer.h"
 #include "coordinates.h"
-#include <QDebug>
 #include <thread>
 
-#include "loggingcategories.h"
 #include "coordinatescontainer.h"
 #include "coordinates.h"
 
@@ -18,11 +16,11 @@ PhysicsThread::~PhysicsThread()
 
 }
 
-double PhysicsThread::getForce(int a)
+double PhysicsThread::getForce(double a)
 {
     if(a == 0) return 0;
 
-    return (1/(double)a) - (1 / ((double)a * (double)a));
+    return (1/a) - (1 / (a * a));
 }
 
 void PhysicsThread::physicsCalculation()
@@ -32,11 +30,11 @@ void PhysicsThread::physicsCalculation()
     std::map<int, Coordinates>::iterator it;
     for(it = s.begin(); it != s.end(); ++it)
     {
-        std::vector<int> buf;
         std::map<int, Coordinates>::iterator it1;
         for(it1 = s.begin(); it1 != s.end(); ++it1)
         {
-            int l = Coordinates::lengthBetweenTwoPoints(it->second, it1->second);
+            double l = Coordinates::lengthBetweenTwoPoints(it->second, it1->second);
+
             if(l == 0) continue;
 
             double f = getForce(l);
@@ -58,12 +56,10 @@ void PhysicsThread::physicsCalculation()
 
 void PhysicsThread::operator ()()
 {
-    qInfo(logInfo()) << "Input to the thread" << endl;
     while(true)
     {
         physicsCalculation();
 
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
-
 }
