@@ -13,10 +13,18 @@ MyCustomScene::MyCustomScene(QObject *parent) :
 MyCustomScene::MyCustomScene(BallsContainer *balls) : p_balls(balls)
 {
     std::srand(std::time(NULL));
+
+    //addRect(0, 0, 520, 20, QPen(Qt::NoPen), QBrush(Qt::darkGray));
+    //addRect(0, 0, 20, 520, QPen(Qt::NoPen), QBrush(Qt::darkGray));
+    //addRect(0, 500, 520, 20, QPen(Qt::NoPen), QBrush(Qt::darkGray));
+    //addRect(500, 0, 20, 520, QPen(Qt::NoPen), QBrush(Qt::darkGray));
+    //addRect(170, 250, 180, 20, QPen(Qt::NoPen), QBrush(Qt::darkGray));
+    //addRect(250, 170, 20, 180, QPen(Qt::NoPen), QBrush(Qt::darkGray));
+
     for(int i = 1; i < 4; ++i)
     {
-        int randX = 50 + std::rand() % static_cast<int>(500 - 1);
-        int randY = 50 + std::rand() % static_cast<int>(500 - 1);
+        int randX = 50 + std::rand() % static_cast<int>(450 - 1);
+        int randY = 50 + std::rand() % static_cast<int>(450 - 1);
         Coordinates c( randX, randY);
         addBall(c);
     }

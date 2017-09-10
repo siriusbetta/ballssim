@@ -6,7 +6,7 @@ class Coordinates
 public:
     //Coordinates( int x, int y);
 
-    Coordinates( int x, int y, double dX = 0, double dY = 0);
+    Coordinates( double x, double y);//, double dX = 0, double dY = 0);
 
     ~Coordinates();
 
@@ -17,12 +17,12 @@ public:
 
     static int lengthBetweenTwoPoints(Coordinates &c1, Coordinates &c2);
 
-    int getX();
-    int getY();
+    double getX();
+    double getY();
 
 
-    int m_x;
-    int m_y;
+    double m_x;
+    double m_y;
 
     double dX;
     double dY;

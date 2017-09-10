@@ -1,8 +1,10 @@
 #include <cmath>
 #include "coordinates.h"
 
-Coordinates::Coordinates(int x, int y, double d_x, double d_y) : m_x(x), m_y(y), dX(d_x), dY(d_y)
+Coordinates::Coordinates(double x, double y /*, double d_x, double d_y */) : m_x(x), m_y(y)//, dX(d_x), dY(d_y)
 {
+    dX = 1;
+    dY = 1;
 }
 
 Coordinates::~Coordinates()
@@ -33,12 +35,12 @@ bool Coordinates::operator == (Coordinates& c) const
     return m_x == c.m_x && m_y == c.m_y;
 }
 */
-int Coordinates::getX()
+double Coordinates::getX()
 {
     return m_x;
 }
 
-int Coordinates::getY()
+double Coordinates::getY()
 {
     return m_y;
 }
