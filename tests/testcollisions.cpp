@@ -1,6 +1,6 @@
 #include "testcollisions.h"
 #include "../collisions.h"
-#include "../coordiantescontainer.h"
+#include "../CoordinatesContainer.h"
 
 Testcollisions::Testcollisions(QObject *parent): QObject(parent)
 {
@@ -14,10 +14,10 @@ void Testcollisions::testIsPlaceCompareOtherBalls()
     Coordinates c3(150, 150);
     Coordinates c4(200, 200);
 
-    CoordiantesContainer::Instance().setCoordinates(1, c1);
-    CoordiantesContainer::Instance().setCoordinates(2, c2);
-    CoordiantesContainer::Instance().setCoordinates(3, c3);
-    CoordiantesContainer::Instance().setCoordinates(4, c4);
+    CoordinatesContainer::Instance().setCoordinates(1, c1);
+    CoordinatesContainer::Instance().setCoordinates(2, c2);
+    CoordinatesContainer::Instance().setCoordinates(3, c3);
+    CoordinatesContainer::Instance().setCoordinates(4, c4);
 
     QFETCH(int, x);
     QFETCH(int, y);
@@ -45,10 +45,10 @@ void Testcollisions::testIsAvaiblePos()
     Coordinates c3(150, 150);
     Coordinates c4(200, 200);
 
-    CoordiantesContainer::Instance().setCoordinates(1, c1);
-    CoordiantesContainer::Instance().setCoordinates(2, c2);
-    CoordiantesContainer::Instance().setCoordinates(3, c3);
-    CoordiantesContainer::Instance().setCoordinates(4, c4);
+    CoordinatesContainer::Instance().setCoordinates(1, c1);
+    CoordinatesContainer::Instance().setCoordinates(2, c2);
+    CoordinatesContainer::Instance().setCoordinates(3, c3);
+    CoordinatesContainer::Instance().setCoordinates(4, c4);
 
     QFETCH(int, x);
     QFETCH(int, y);

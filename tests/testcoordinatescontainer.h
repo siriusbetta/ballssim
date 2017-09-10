@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include <QTest>
-#include "../coordiantescontainer.h"
+#include "../coordinatescontainer.h"
 
 class TestCoordinatescontainer : public QObject
 {

@@ -22,7 +22,7 @@ SOURCES += main.cpp \
     testcollisions.cpp\
         loggincategories.cpp
 SOURCES += ../coordinates.cpp
-SOURCES += ../coordiantescontainer.cpp
+SOURCES += ../CoordinatesContainer.cpp
 SOURCES += ../collisions.cpp
 
 HEADERS += \
