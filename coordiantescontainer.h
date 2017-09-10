@@ -1,38 +1,42 @@
 /*!
- *	\brief Данный класс является контенером для координат шаров Coordinates
+ *	\brief пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ Coordinates
  *
- *	Каждый шар при создании имеет атрибут id и пару координат x и y, которые
- *	сохраняются в мапе по id и указателю на обьект Coordinates
+ *	пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ id пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ x пїЅ y, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+ *	пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ id пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ Coordinates
  *
  */
 #ifndef COORDIANTESCONTAINER_H
 #define COORDIANTESCONTAINER_H
 
 #include <map>
+#include <algorithm>
+#include <mutex>
 #include "coordinates.h"
 
 class CoordiantesContainer
 {
 public:
+    static CoordiantesContainer& Instance()
+    {
+        static CoordiantesContainer c;
+        return c;
+    }
 
-    CoordiantesContainer();
-
-    ~CoordiantesContainer();
 
     /*!
-     * \brief Вставляет координату шара в контенер по id шара
+     * \brief пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ id пїЅпїЅпїЅпїЅ
 
      * \param id
      * \param coordinates
      */
-    void setCoordinates(int id, Coordinates *coordinates);
+    void setCoordinates(int id, Coordinates &coordinates);
 
     /*!
-     * \brief Возвращает координату шара из контенера по id шара
+     * \brief пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ id пїЅпїЅпїЅпїЅ
      *
-     * \return Coordinates возвращает указатель на координаты текущего шара, если нет то вернет последний элемент
+     * \return Coordinates пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
      */
-    Coordinates * getCoordinates(int id);
+    Coordinates & getCoordinates(int id);
 
     /*!
      * \brief Returns number of maps
@@ -46,18 +50,36 @@ public:
      *
      * \param coordiantes
      */
-    void removeItem(Coordinates *coordiantes);
+    void removeItem(Coordinates &coordiantes);
+
+    /*!
+     * \brief Remove balls by id
+     *
+     * \param coordiantes
+     */
+    void removeItem(int id);
+
+    void updateItem(int id, Coordinates &coordinates);
 
     /*!
      * \brief Looking for a ball id by given coordinates
      *
      * \param coordiantes
      */
-    int findIdByCoordinates(Coordinates *coordinates);
+    int findIdByCoordinates(Coordinates& coordinates);
 
-    std::map<int, Coordinates*> getContainer();
+    void erase();
 
-    std::map<int, Coordinates*> allCoordinates; //! Контенер мапа
+    std::map<int, Coordinates> getContainer();
+
+    void setContainer(std::map<int, Coordinates>& container);
+
+    std::mutex mutex;
+
+private:
+    CoordiantesContainer();
+
+    std::map<int, Coordinates> allCoordinates; //! пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 };
 
 

@@ -10,44 +10,44 @@ public:
     Collisions();
 
 /*!
-     * \brief Проверяет допустимость расположение нового шара относительно стен и других шаров
+     * \brief пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
      *
-     * \param c Координата текущего объекта
+     * \param c пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
      * \return bool
      */
-    static bool isAvaiblePos(CoordiantesContainer *cont, Coordinates *c);
+    static bool isAvaiblePos(Coordinates &c);
 
     /*!
-     * \brief Проверяет допустимость расположения отностильно других шаров на поле симуляции текущего шара
+     * \brief пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
      *
-     * метод обходит через все элеметы мапы и сравнивает
+     * пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
      *
-     * \param c Координата текущего объекта
+     * \param c пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
      * \return bool
      */
-   static bool isPlaceCompareOtherBalls(CoordiantesContainer *cont, Coordinates *c);
+   static bool isPlaceCompareOtherBalls(Coordinates &c);
 /*!
-     * \brief Метод сравнивает координаты центров двух шаров
+     * \brief пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
      *
-     *	если между ними в сумму будет меньше 50, то метод
-     * возвращает false.
+     *	пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 50, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+     * пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ false.
      *
-     * \param c1 Координаты первого объекта
-     * \param c2 Координаты второго объекта
+     * \param c1 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+     * \param c2 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
      *
      *	\return bool
      */
-    static bool hasEnoughPlaceBetweenTwoBalls(Coordinates *c1, Coordinates *c2);
+    static bool hasEnoughPlaceBetweenTwoBalls(Coordinates &c1, Coordinates &c2);
 
     /*!
-     * \brief Метод сравнивает данную координату относительно границ поля симуляции
+     * \brief пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
      *
-     * если до стены муньше 25 или больше 575 по обоим координатам то метод возвращает false
+     * пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 25 пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 575 пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ false
      *
-     * \param c Координата текущего объекта
+     * \param c пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
      * \return bool
      */
-    static bool isPlaceCompareWalls(Coordinates *c);
+    static bool isPlaceCompareWalls(Coordinates &c);
 
      /*!
      * \breaf Checks lentgth between two coordinates
@@ -59,7 +59,7 @@ public:
      *
      * \return bool true lenght less or equal 25 (radius ball)
      */
-    static bool isCoordinateLayInTheBall(Coordinates *c, Coordinates *b);
+    static bool isCoordinateLayInTheBall(Coordinates &c, Coordinates &b);
 
     /*!
      * \breaf Compare lentgth between two balls and different length value
@@ -71,8 +71,9 @@ public:
      *
      * \return bool true is lenght between balls more or equal given length
      */
-    static bool isLengthBetweenTwoBallsMoreThenLength(Coordinates *c1, Coordinates *c2, int length);
+    static bool isLengthBetweenTwoBallsMoreThenLength(Coordinates &c1, Coordinates &c2, int length);
 
+    static bool isBorder(Coordinates &c);
 
     static int width;
     static int height;

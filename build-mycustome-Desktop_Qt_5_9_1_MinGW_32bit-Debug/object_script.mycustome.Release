@@ -1,0 +1,13 @@
+INPUT(
+./release/main.o
+./release/testcoordinates.o
+./release/testcoordinatescontainer.o
+./release/testcollisions.o
+./release/loggincategories.o
+./release/coordinates.o
+./release/coordiantescontainer.o
+./release/collisions.o
+./release/moc_testcoordinates.o
+./release/moc_testcoordinatescontainer.o
+./release/moc_testcollisions.o
+);

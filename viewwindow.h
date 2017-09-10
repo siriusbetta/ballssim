@@ -15,9 +15,10 @@ public:
     ViewWindow( QWidget *parent = 0);
     ~ViewWindow();
 
-    QGraphicsScene *scene;
+    MyCustomScene *scene;
     BallsContainer *balls;
     CoordiantesContainer *coordiantes;
 };
+
 
 #endif // VIEWWINDOW_H

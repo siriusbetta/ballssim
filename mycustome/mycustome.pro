@@ -18,10 +18,15 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     testcoordinates.cpp \
-    testcoordinatescontainer.cpp
+    testcoordinatescontainer.cpp \
+    testcollisions.cpp\
+        loggincategories.cpp
 SOURCES += ../coordinates.cpp
 SOURCES += ../coordiantescontainer.cpp
+SOURCES += ../collisions.cpp
 
 HEADERS += \
     testcoordinates.h \
-    testcoordinatescontainer.h
+    testcoordinatescontainer.h \
+    testcollisions.h \
+    loggingcategories.h

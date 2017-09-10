@@ -1,3 +1,5 @@
 *.pro.user
 *.o
-mycustome-build-desktop-Qt_4_8_4__4_8_4__Debug/
+mycustome-build-desktop-Qt_4_8_4__4_8_4__Debug/*
+build-test_pr-Desktop_Qt_5_9_1_MinGW_32bit-Debug/*
+test_pr/*

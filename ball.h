@@ -6,6 +6,8 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QCursor>
 
+#include "coordinates.h"
+
 class Ball : public QObject, public QGraphicsItem
 {
     Q_OBJECT
@@ -22,6 +24,8 @@ public:
     int getId();
 
     void setId(int id);
+
+    void move(Coordinates & c);
 
     int m_id;
 

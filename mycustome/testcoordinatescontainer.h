@@ -14,27 +14,24 @@ public:
 signals:
     
 private slots:
-    void compareTwoCoordinates();
-    void compareTwoCoordinates_data();
 
-    void testChechLengthToTheWalls();
-    void testChechLengthToTheWalls_data();
 
     void testCoordinatsInsertion();
+    void testPreparation();
     void testCoordinatsGetting();
-    void testIsPlaceCompareOtherBalls();
-    void testIsPlaceCompareOtherBalls_data();
-    void testIsAvaiblePos();
-    void testIsAvaiblePos_data();
 
-    void testIsCoordinateLayInTheBall();
-    void testIsCoordinateLayInTheBall_data();
+    void testPreparation1();
 
     void testFindBallByCoordinates();
     void testFindBallByCoordinates_data();
 
+    void testPreparation2();
     void testRemoveItem();
     void testRemoveItem_data();
+    void testPreparation3();
+
+    void testUpdateData();
+
 };
 
 #endif // TESTCOORDINATESCONTAINER_H

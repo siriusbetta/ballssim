@@ -23,3 +23,8 @@ int BallsContainer::getLastId()
 {
     return balls.end()->first;
 }
+
+void BallsContainer::remove(int id)
+{
+    balls.erase(id);
+}

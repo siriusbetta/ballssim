@@ -18,6 +18,8 @@ public:
 
     int getLastId();
 
+    void remove(int id);
+
     std::map<int, Ball*> balls;
 };
 
