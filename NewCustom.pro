@@ -29,12 +29,12 @@ SOURCES += \
     ball.cpp \
     coordinates.cpp \
     ballscontainer.cpp \
-    coordiantescontainer.cpp \
     collisions.cpp \
     loggincategories.cpp \
     physicsthread.cpp \
     mainview.cpp \
-    simulationscene.cpp
+    simulationscene.cpp \
+    coordinatescontainer.cpp
 
 HEADERS += \
         mainwindow.h \
