@@ -44,11 +44,11 @@ void PhysicsThread::physicsCalculation()
             Coordinates c1 = it->second;
             Coordinates c2 = it1->second;
 
-            c1.dX = (f * (c2.getX() - c1.getX())/l) * 100;
-            c1.dY = (f * (c2.getY() - c1.getY())/l) * 100;
+            c1.m_dX = (f * (c2.getX() - c1.getX())/l) * 100;
+            c1.m_dY = (f * (c2.getY() - c1.getY())/l) * 100;
 
-            c1.m_x += c1.dX;
-            c1.m_y += c1.dY;
+            c1.m_x += c1.m_dX;
+            c1.m_y += c1.m_dY;
 
             it->second = c1;
             CoordinatesContainer::Instance().updateItem(it->first, c1);

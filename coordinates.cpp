@@ -1,10 +1,8 @@
 #include <cmath>
 #include "coordinates.h"
 
-Coordinates::Coordinates(double x, double y /*, double d_x, double d_y */) : m_x(x), m_y(y)//, dX(d_x), dY(d_y)
+Coordinates::Coordinates(double x, double y , double d_x, double d_y ) : m_x(x), m_y(y), m_dX(d_x), m_dY(d_y)
 {
-    dX = 1;
-    dY = 1;
 }
 
 Coordinates::~Coordinates()
@@ -22,8 +20,8 @@ const Coordinates& Coordinates::operator = ( const Coordinates &c)
 {
     m_x = c.m_x;
     m_y = c.m_y;
-    dX = c.dX;
-    dY = c.dY;
+    m_dX = c.m_dX;
+    m_dY = c.m_dY;
     return *this;
 }
 
