@@ -12,11 +12,15 @@ class ViewWindow : public QGraphicsView
 {
     Q_OBJECT
 public:
+
     ViewWindow( QWidget *parent = 0);
+
     ~ViewWindow();
 
     SimulationScene *scene;
+
     BallsContainer *balls;
+
     CoordinatesContainer *coordiantes;
 };
 
