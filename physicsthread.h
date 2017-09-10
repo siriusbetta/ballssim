@@ -12,7 +12,7 @@ public:
 
     void operator()();
 
-    double getForce(double a);
+    double getForce(int a);
 
     void physicsCalculation();
 };

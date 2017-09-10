@@ -5,7 +5,7 @@ class Coordinates
 {
 public:
 
-    Coordinates( double x, double y, double m_dX = 0, double m_dY = 0);
+    Coordinates( int x, int y, double m_dX = 0, double m_dY = 0);
 
     ~Coordinates();
 
@@ -19,8 +19,8 @@ public:
     double getY();
 
 
-    double m_x;
-    double m_y;
+    int m_x;
+    int m_y;
 
     double m_dX;
     double m_dY;

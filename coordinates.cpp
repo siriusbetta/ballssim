@@ -1,7 +1,7 @@
 #include <cmath>
 #include "coordinates.h"
 
-Coordinates::Coordinates(double x, double y , double d_x, double d_y ) : m_x(x), m_y(y), m_dX(d_x), m_dY(d_y)
+Coordinates::Coordinates(int x, int y , double d_x, double d_y ) : m_x(x), m_y(y), m_dX(d_x), m_dY(d_y)
 {
 }
 
