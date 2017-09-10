@@ -9,53 +9,48 @@ class Collisions
 public:
     Collisions();
 
-/*!
-     * \brief ��������� ������������ ������������ ������ ���� ������������ ���� � ������ �����
+    /*!
+     * @brief Cheking aviability to placement ball in scene with current coordinates
      *
-     * \param c ���������� �������� �������
-     * \return bool
+     * @param c current coordinates
+     * @return bool
      */
     static bool isAvaiblePos(Coordinates &c);
 
     /*!
-     * \brief ��������� ������������ ������������ ����������� ������ ����� �� ���� ��������� �������� ����
+     * @brief Checks coordinates compare other balls coordiants
      *
-     * ����� ������� ����� ��� ������� ���� � ����������
-     *
-     * \param c ���������� �������� �������
-     * \return bool
+     * @param c current coordiants
+     * @return bool
      */
    static bool isPlaceCompareOtherBalls(Coordinates &c);
-/*!
-     * \brief ����� ���������� ���������� ������� ���� �����
+
+     /*!
+     * @brief Checks place between two balls if there are not enough place  (50) for
+     *  placement two balss return false
      *
-     *	���� ����� ���� � ����� ����� ������ 50, �� �����
-     * ���������� false.
+     * @param c1 First coordiants
+     * @param c2 Second coordiants
      *
-     * \param c1 ���������� ������� �������
-     * \param c2 ���������� ������� �������
-     *
-     *	\return bool
+     *	@return bool
      */
     static bool hasEnoughPlaceBetweenTwoBalls(Coordinates &c1, Coordinates &c2);
 
     /*!
-     * \brief ����� ���������� ������ ���������� ������������ ������ ���� ���������
+     * \brief Compare current coordinates with wall coordinates
      *
-     * ���� �� ����� ������ 25 ��� ������ 575 �� ����� ����������� �� ����� ���������� false
-     *
-     * \param c ���������� �������� �������
+     * \param c current balls coordinates
      * \return bool
      */
     static bool isPlaceCompareWalls(Coordinates &c);
 
      /*!
-     * \breaf Checks lentgth between two coordinates
+     * @breaf Checks lentgth between two coordinates
      *
      *	if length less or equal 25 means that given coordinate lays into the ball
      *
-     * \param c1
-     * \param c2
+     * @param c1
+     * @param c2
      *
      * \return bool true lenght less or equal 25 (radius ball)
      */

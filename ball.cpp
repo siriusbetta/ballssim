@@ -49,7 +49,7 @@ void Ball::move(Coordinates &c)
 
 void Ball::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
-    if( (event->buttons() & Qt::LeftButton) == Qt::LeftButton)
+    if( (event->buttons() & Qt::LeftButton) == Qt::LeftButton) /*< Checking event parameters for moving item by left button */
     {
         Coordinates c(event->scenePos().x(),event->scenePos().y());
         this->setPos(mapToScene(event->pos()));

@@ -7,7 +7,12 @@
 #include <QCursor>
 
 #include "coordinates.h"
-
+/*!
+ * @brief class implementation the Ball
+ *        graphics representaoin
+ *
+ * @param  QGraphicsItem is a QT grphic object
+ */
 class Ball : public QObject, public QGraphicsItem
 {
     Q_OBJECT
@@ -17,20 +22,39 @@ public:
 
     ~Ball();
 
+    /*!
+     * @brief returns area where located painted item
+     * @return qtobject rectangle
+     */
     QRectF boundingRect() const;
 
     void paint( QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
+    /*!
+     * returns id of the Ball
+     *
+     * @return int balls id
+     */
     int getId();
 
+    /**
+     * setting of balls id
+     *
+     * @param id
+     */
     void setId(int id);
 
+    /*!
+     * Updates current balls coordinates with new one
+     *
+     * @param c new coordinates
+     */
     void move(Coordinates & c);
 
-    int m_id;
+    int m_id; /*< balls id*/
 
 signals:
-    
+
 public slots:
 
 protected:

@@ -1,4 +1,5 @@
 *.pro.user
 *.o
+*.*~
 build-tests-Desktop_Qt_5_9_1_MinGW_32bit-Debug/*
 test_pr/*

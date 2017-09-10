@@ -15,7 +15,6 @@ Coordinates::Coordinates(const Coordinates &c) : m_x(c.m_x), m_y(c.m_y)
 
 }
 
-
 const Coordinates& Coordinates::operator = ( const Coordinates &c)
 {
     m_x = c.m_x;

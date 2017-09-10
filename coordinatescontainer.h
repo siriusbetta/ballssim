@@ -1,8 +1,7 @@
 /*!
- *	\brief ������ ����� �������� ���������� ��� ��������� ����� Coordinates
- *
- *	������ ��� ��� �������� ����� ������� id � ���� ��������� x � y, �������
- *	����������� � ���� �� id � ��������� �� ������ Coordinates
+ *	@brief implements container for Coordinates
+ * the methods are threads safelly, because the container uses for sharing
+ * data between graphic main thread and calcuations thread
  *
  */
 #ifndef COORDINATESCONTAINER_H
@@ -16,6 +15,10 @@
 class CoordinatesContainer
 {
 public:
+  /*!
+   * Singleton. Returns link someself
+   * @return
+   */
     static CoordinatesContainer& Instance()
     {
         static CoordinatesContainer c;
@@ -23,17 +26,17 @@ public:
     }
 
     /*!
-     * \brief ��������� ���������� ���� � �������� �� id ����
+     * @brief Adds coordiantes to the container
 
-     * \param id
-     * \param coordinates
+     * @param id ball id
+     * @param coordinates
      */
     void setCoordinates(int id, Coordinates &coordinates);
 
     /*!
-     * \brief ���������� ���������� ���� �� ��������� �� id ����
+     * @brief Returns coordinats from container by id
      *
-     * \return Coordinates ���������� ��������� �� ���������� �������� ����, ���� ��� �� ������ ��������� �������
+     * @return Coordinates
      */
     Coordinates & getCoordinates(int id);
 
@@ -58,27 +61,44 @@ public:
      */
     void removeItem(int id);
 
+    /*!
+     * updates coordinates in the caontainer by balls id
+     * @param id
+     * @param coordinates
+     */
     void updateItem(int id, Coordinates &coordinates);
 
     /*!
-     * \brief Looking for a ball id by given coordinates
+     * @brief Looking for a ball id by given coordinates
      *
-     * \param coordiantes
+     * @param coordiantes
      */
     int findIdByCoordinates(Coordinates& coordinates);
 
+    /*!
+     * removed all items from container
+     */
     void erase();
 
+    /*!
+     * returns container
+     *
+     * @param map where keeps all coordinates
+     */
     std::map<int, Coordinates> getContainer();
 
+    /*!
+     * Sets container
+     * @param container map
+     */
     void setContainer(std::map<int, Coordinates>& container);
 
-    std::mutex mutex;
+    std::mutex mutex; /*< mutex locker */
 
 private:
     CoordinatesContainer();
 
-    std::map<int, Coordinates> allCoordinates; //! �������� ����
+    std::map<int, Coordinates> allCoordinates; /*< container*/
 };
 
 

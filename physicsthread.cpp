@@ -35,15 +35,15 @@ void PhysicsThread::physicsCalculation()
         {
             int l = Coordinates::lengthBetweenTwoPoints(it->second, it1->second);
 
-            if(l == 0) continue;
+            if(l == 0) continue; /*< If length equal zero skips current iteration */
 
             double f = getForce(l);
 
             Coordinates c1 = it->second;
             Coordinates c2 = it1->second;
 
-            c1.m_dX = (f * (c2.getX() - c1.getX())/l) * 5;
-            c1.m_dY = (f * (c2.getY() - c1.getY())/l) * 5;
+            c1.m_dX = (f * (c2.getX() - c1.getX())/l) * 5; /*< Step to x */
+            c1.m_dY = (f * (c2.getY() - c1.getY())/l) * 5; /*< Step to y */
 
             c1.m_x += c1.m_dX;
             c1.m_y += c1.m_dY;
