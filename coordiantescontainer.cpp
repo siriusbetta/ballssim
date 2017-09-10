@@ -1,20 +1,20 @@
-#include "coordiantescontainer.h"
+#include "coordinatescontainer.h"
 #include "collisions.h"
 #include <QDebug>
 #include "loggingcategories.h"
 
-CoordiantesContainer::CoordiantesContainer()
+CoordinatesContainer::CoordinatesContainer()
 {
 }
 
-void CoordiantesContainer::setCoordinates(int id, Coordinates &coordinates)
+void CoordinatesContainer::setCoordinates(int id, Coordinates &coordinates)
 {
     while(!mutex.try_lock());
     allCoordinates.insert(std::make_pair(id, coordinates));
     mutex.unlock();
 }
 
-Coordinates& CoordiantesContainer::getCoordinates(int id)
+Coordinates& CoordinatesContainer::getCoordinates(int id)
 {
     while(!mutex.try_lock());
     std::map<int, Coordinates>::iterator it;
@@ -26,12 +26,12 @@ Coordinates& CoordiantesContainer::getCoordinates(int id)
     return it->second;
 }
 
-int CoordiantesContainer::length()
+int CoordinatesContainer::length()
 {
     return allCoordinates.size();
 }
 
-void CoordiantesContainer::removeItem(Coordinates &coordiantes)
+void CoordinatesContainer::removeItem(Coordinates &coordiantes)
 {
     int id = findIdByCoordinates(coordiantes);
 
@@ -41,14 +41,14 @@ void CoordiantesContainer::removeItem(Coordinates &coordiantes)
     mutex.unlock();
 }
 
-void CoordiantesContainer::removeItem(int id)
+void CoordinatesContainer::removeItem(int id)
 {
     while(!mutex.try_lock());
     allCoordinates.erase(id);
     mutex.unlock();
 }
 
-void CoordiantesContainer::updateItem(int id, Coordinates &coordinates)
+void CoordinatesContainer::updateItem(int id, Coordinates &coordinates)
 {
     while(!mutex.try_lock());
     std::map<int, Coordinates>::iterator it;
@@ -58,7 +58,7 @@ void CoordiantesContainer::updateItem(int id, Coordinates &coordinates)
     mutex.unlock();
 }
 
-int CoordiantesContainer::findIdByCoordinates(Coordinates &coordinates)
+int CoordinatesContainer::findIdByCoordinates(Coordinates &coordinates)
 {
 
     while(!mutex.try_lock());
@@ -77,19 +77,19 @@ int CoordiantesContainer::findIdByCoordinates(Coordinates &coordinates)
     return id;
 }
 
-void CoordiantesContainer::erase()
+void CoordinatesContainer::erase()
 {
     while(!mutex.try_lock());
     allCoordinates.clear();
     mutex.unlock();
 }
 
-std::map<int, Coordinates> CoordiantesContainer::getContainer()
+std::map<int, Coordinates> CoordinatesContainer::getContainer()
 {
     return allCoordinates;
 }
 
-void CoordiantesContainer::setContainer(std::map<int, Coordinates> &container)
+void CoordinatesContainer::setContainer(std::map<int, Coordinates> &container)
 {
     while(!mutex.try_lock());
     allCoordinates = container;

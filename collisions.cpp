@@ -13,7 +13,7 @@ bool Collisions::isAvaiblePos(Coordinates &c)
 bool Collisions::isPlaceCompareOtherBalls(Coordinates &c)
 {
 
-    std::map<int, Coordinates> container = CoordiantesContainer::Instance().getContainer();
+    std::map<int, Coordinates> container = CoordinatesContainer::Instance().getContainer();
 
     std::map<int, Coordinates>::iterator it;
     for(it = container.begin(); it != container.end(); ++it)

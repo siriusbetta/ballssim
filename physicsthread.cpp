@@ -1,11 +1,11 @@
 #include "physicsthread.h"
-#include "coordiantescontainer.h"
+#include "coordinatescontainer.h"
 #include "coordinates.h"
 #include <QDebug>
 #include <thread>
 
 #include "loggingcategories.h"
-#include "coordiantescontainer.h"
+#include "coordinatescontainer.h"
 #include "coordinates.h"
 
 PhysicsThread::PhysicsThread()
@@ -27,7 +27,7 @@ double PhysicsThread::getForce(int a)
 
 void PhysicsThread::physicsCalculation()
 {
-    std::map<int, Coordinates> s = CoordiantesContainer::Instance().getContainer();
+    std::map<int, Coordinates> s = CoordinatesContainer::Instance().getContainer();
 
     std::map<int, Coordinates>::iterator it;
     for(it = s.begin(); it != s.end(); ++it)
@@ -51,7 +51,7 @@ void PhysicsThread::physicsCalculation()
             c1.m_y += c1.dY;
 
             it->second = c1;
-            CoordiantesContainer::Instance().updateItem(it->first, c1);
+            CoordinatesContainer::Instance().updateItem(it->first, c1);
         }
     }
 }

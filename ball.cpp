@@ -3,7 +3,7 @@
 #include "ball.h"
 #include "collisions.h"
 #include "coordinates.h"
-#include "coordiantescontainer.h"
+#include "coordinatescontainer.h"
 
 Ball::Ball(QObject *parent) : QObject(parent),
     QGraphicsItem()
@@ -44,8 +44,6 @@ void Ball::move(Coordinates &c)
         qInfo(logInfo()) << "id: " << m_id << " x: " << c.getX() << " y: " << c.getY() << endl;
         this->setX(c.getX());
         this->setY(c.getY());
-        //this->setPos(mapToScene((double)c.getX(), (double)c.getY()));
-        //CoordiantesContainer::Instance().updateItem(m_id, c);
     }
 }
 
@@ -55,7 +53,7 @@ void Ball::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
     {
         Coordinates c(event->scenePos().x(), event->scenePos().y());
         this->setPos(mapToScene(event->pos()));
-        CoordiantesContainer::Instance().updateItem(m_id, c);
+        CoordinatesContainer::Instance().updateItem(m_id, c);
     }
     QGraphicsItem::mouseMoveEvent(event);
 }

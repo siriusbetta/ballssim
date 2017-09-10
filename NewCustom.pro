@@ -26,31 +26,27 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    viewwindow.cpp \
-    traingle.cpp \
-    circle.cpp \
-    mycustomscene.cpp \
     ball.cpp \
     coordinates.cpp \
     ballscontainer.cpp \
     coordiantescontainer.cpp \
     collisions.cpp \
     loggincategories.cpp \
-    physicsthread.cpp
+    physicsthread.cpp \
+    mainview.cpp \
+    simulationscene.cpp
 
 HEADERS += \
         mainwindow.h \
-    viewwindow.h \
-    traingle.h \
-    circle.h \
-    mycustomscene.h \
     ball.h \
     coordinates.h \
     ballscontainer.h \
-    coordiantescontainer.h \
     collisions.h \
     loggingcategories.h \
-    physicsthread.h
+    physicsthread.h \
+    mainview.h \
+    simulationscene.h \
+    coordinatescontainer.h
 
 FORMS += \
         mainwindow.ui

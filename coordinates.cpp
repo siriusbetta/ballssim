@@ -27,14 +27,6 @@ const Coordinates& Coordinates::operator = ( const Coordinates &c)
     return *this;
 }
 
-
-
-/*
-bool Coordinates::operator == (Coordinates& c) const
-{
-    return m_x == c.m_x && m_y == c.m_y;
-}
-*/
 double Coordinates::getX()
 {
     return m_x;
@@ -45,8 +37,8 @@ double Coordinates::getY()
     return m_y;
 }
 
-int Coordinates::lengthBetweenTwoPoints(Coordinates &c1, Coordinates &c2)
+double Coordinates::lengthBetweenTwoPoints(Coordinates &c1, Coordinates &c2)
 {
-    return (int)sqrt( (c2.getX() - c1.getX()) * (c2.getX() - c1.getX()) +
+    return sqrt( (c2.getX() - c1.getX()) * (c2.getX() - c1.getX()) +
                  (c2.getY() - c1.getY()) * (c2.getY() - c1.getY()));
 }

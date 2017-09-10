@@ -1,7 +1,7 @@
 #ifndef COLLISIONS_H
 #define COLLISIONS_H
 
-#include "coordiantescontainer.h"
+#include "coordinatescontainer.h"
 #include "coordinates.h"
 
 class Collisions

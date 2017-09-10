@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <viewwindow.h>
+#include <mainview.h>
 #include <QGridLayout>
 namespace Ui {
 class MainWindow;

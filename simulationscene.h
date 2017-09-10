@@ -1,27 +1,27 @@
-#ifndef MYCUSTOMSCENE_H
-#define MYCUSTOMSCENE_H
+#ifndef SIMULATIONSCENE_H
+#define SIMULATIONSCENE_H
 
 #include <QGraphicsScene>
 #include <QTimer>
 
 #include <ballscontainer.h>
-#include <coordiantescontainer.h>
+#include <coordinatescontainer.h>
 #include <ball.h>
 #include "collisions.h"
 #include "coordinates.h"
 
-class MyCustomScene : public QGraphicsScene
+class SimulationScene : public QGraphicsScene
 {
     Q_OBJECT
 public:
-    explicit MyCustomScene(QObject *parent = 0);
-    MyCustomScene(BallsContainer *balls);
+    explicit SimulationScene(QObject *parent = 0);
+    SimulationScene(BallsContainer *balls);
 
-    ~MyCustomScene();
+    ~SimulationScene();
 
     Ball *ball;
 
-    BallsContainer *p_balls;
+    BallsContainer *allBalls;
 
     void addBall(Coordinates &c);
 
@@ -39,4 +39,4 @@ protected:
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
 };
 
-#endif // MYCUSTOMSCENE_H
+#endif //SIMULATIONSCENE_H

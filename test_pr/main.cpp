@@ -1,7 +1,7 @@
 #include <QCoreApplication>
 #include <iostream>
 #include <vector>
-#include "../coordiantescontainer.h"
+#include "../coordinatescontainer.h"
 #include "../coordinates.h"
 
 double getForce(int a)
@@ -43,13 +43,13 @@ int main(int argc, char *argv[])
         std::cout << "x - " << c1.dX << std::endl;
         */
 
-    CoordiantesContainer::Instance().setCoordinates(1, c1);
-    CoordiantesContainer::Instance().setCoordinates(2, c2);
-    CoordiantesContainer::Instance().setCoordinates(3, c3);
-    CoordiantesContainer::Instance().setCoordinates(4, c4);
+    CoordinatesContainer::Instance().setCoordinates(1, c1);
+    CoordinatesContainer::Instance().setCoordinates(2, c2);
+    CoordinatesContainer::Instance().setCoordinates(3, c3);
+    CoordinatesContainer::Instance().setCoordinates(4, c4);
 
-    std::map<int, Coordinates> s = CoordiantesContainer::Instance().getContainer();
-    std::map<int, Coordinates> s2 = CoordiantesContainer::Instance().getContainer();
+    std::map<int, Coordinates> s = CoordinatesContainer::Instance().getContainer();
+    std::map<int, Coordinates> s2 = CoordinatesContainer::Instance().getContainer();
 
 
     std::map<int, Coordinates>::iterator it;
@@ -86,12 +86,12 @@ int main(int argc, char *argv[])
             std::cout << "x - " << c1.m_x << std::endl;
             it->second = c1;
             it1->second = c2;
-            CoordiantesContainer::Instance().updateItem(it->first, c1);
-            CoordiantesContainer::Instance().updateItem(it1->first, c2);
+            CoordinatesContainer::Instance().updateItem(it->first, c1);
+            CoordinatesContainer::Instance().updateItem(it1->first, c2);
         }
     }
 
-    Coordinates r = CoordiantesContainer::Instance().getCoordinates(1);
+    Coordinates r = CoordinatesContainer::Instance().getCoordinates(1);
     std::cout << "x - " << r.getX() << std::endl;
     return a.exec();
 }

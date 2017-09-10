@@ -4,18 +4,16 @@
 class Coordinates
 {
 public:
-    //Coordinates( int x, int y);
 
-    Coordinates( double x, double y);//, double dX = 0, double dY = 0);
+    Coordinates( double x, double y);
 
     ~Coordinates();
 
     Coordinates(const Coordinates & c);
 
     const Coordinates& operator = (const Coordinates& c);
-   // bool operator == (Coordinates& c) const;
 
-    static int lengthBetweenTwoPoints(Coordinates &c1, Coordinates &c2);
+    static double lengthBetweenTwoPoints(Coordinates &c1, Coordinates &c2);
 
     double getX();
     double getY();

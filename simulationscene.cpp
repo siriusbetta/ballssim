@@ -1,16 +1,16 @@
-#include "mycustomscene.h"
+#include "simulationscene.h"
 #include <QDebug>
 #include <QMouseEvent>
 #include <thread>
 #include "loggingcategories.h"
 #include "physicsthread.h"
 
-MyCustomScene::MyCustomScene(QObject *parent) :
+SimulationScene::SimulationScene(QObject *parent) :
     QGraphicsScene(parent)
 {
 }
 
-MyCustomScene::MyCustomScene(BallsContainer *balls) : p_balls(balls)
+SimulationScene::SimulationScene(BallsContainer *balls) : allBalls(balls)
 {
     std::srand(std::time(NULL));
 
@@ -30,23 +30,20 @@ MyCustomScene::MyCustomScene(BallsContainer *balls) : p_balls(balls)
     }
 
     sceneTimer = new QTimer();
-    connect(sceneTimer, &QTimer::timeout, this, MyCustomScene::slotAnimation);
+    connect(sceneTimer, &QTimer::timeout, this, SimulationScene::slotAnimation);
 
 
     sceneTimer->start(100);
 }
 
-MyCustomScene::~MyCustomScene()
+SimulationScene::~SimulationScene()
 {
 }
 
 
-void MyCustomScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
+void SimulationScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    int x = event->scenePos().x();
-    int y = event->scenePos().y();
-
-    Coordinates c(x, y);
+    Coordinates c(event->scenePos().x(), event->scenePos().y());
 
     if(event->button() == Qt::LeftButton)
     {
@@ -61,56 +58,42 @@ void MyCustomScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
     QGraphicsScene::mousePressEvent(event);
 }
 
-
-
-void MyCustomScene::addBall(Coordinates &c)
+void SimulationScene::addBall(Coordinates &c)
 {
     if( Collisions::isAvaiblePos(c))
     {
         ball = new Ball();
-        int id = p_balls->getLastId() + 1;
+        int id = allBalls->getLastId() + 1;
+
         ball->setId(id);
-        ball->installEventFilter(this);
         this->addItem(ball);
-        p_balls->addItem(id, ball);
-        CoordiantesContainer::Instance().setCoordinates(id,c);
+        allBalls->addItem(id, ball);
+        CoordinatesContainer::Instance().setCoordinates(id,c);
         ball->setPos(ball->mapToScene(c.getX() - 25, c.getY() - 25));
     }
 }
 
-void MyCustomScene::removeBall(Coordinates &c)
+void SimulationScene::removeBall(Coordinates &c)
 {
-   int id = CoordiantesContainer::Instance().findIdByCoordinates(c);
-   Ball *ball = p_balls->getItem(id);
-   this->removeItem(ball);
-   p_balls->remove(id);
+   int id = CoordinatesContainer::Instance().findIdByCoordinates(c);
+   Ball *ball = allBalls->getItem(id);
 
-   CoordiantesContainer::Instance().removeItem(id);
+   this->removeItem(ball);
+   allBalls->remove(id);
+   CoordinatesContainer::Instance().removeItem(id);
 }
 
-
-void MyCustomScene::slotAnimation()
+void SimulationScene::slotAnimation()
 {
-    std::map<int, Coordinates> coordinates = CoordiantesContainer::Instance().getContainer();
+    std::map<int, Coordinates> coordinates = CoordinatesContainer::Instance().getContainer();
     std::map<int, Coordinates>::iterator it;
     Ball *ball;
 
     for(it = coordinates.begin(); it != coordinates.end(); ++it)
     {
         int id = it->first;
-        ball = p_balls->getItem(id);
+        ball = allBalls->getItem(id);
         ball->move(it->second);
     }
 }
 
-/*
-bool MyCustomScene::eventFilter(QObject *watched, QEvent *event)
-{
-    qInfo(logInfo()) << "Scene received" << endl;
-    if(event->type() == QEvent::MouseButtonPress)
-    {
-        qInfo(logInfo()) << "Scene received" << endl;
-    }
-    return MyCustomScene::eventFilter(watched, event);
-}
-*/

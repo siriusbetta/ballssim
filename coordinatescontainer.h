@@ -5,20 +5,20 @@
  *	����������� � ���� �� id � ��������� �� ������ Coordinates
  *
  */
-#ifndef COORDIANTESCONTAINER_H
-#define COORDIANTESCONTAINER_H
+#ifndef COORDINATESCONTAINER_H
+#define COORDINATESCONTAINER_H
 
 #include <map>
 #include <algorithm>
 #include <mutex>
 #include "coordinates.h"
 
-class CoordiantesContainer
+class CoordinatesContainer
 {
 public:
-    static CoordiantesContainer& Instance()
+    static CoordinatesContainer& Instance()
     {
-        static CoordiantesContainer c;
+        static CoordinatesContainer c;
         return c;
     }
 
@@ -77,10 +77,10 @@ public:
     std::mutex mutex;
 
 private:
-    CoordiantesContainer();
+    CoordinatesContainer();
 
     std::map<int, Coordinates> allCoordinates; //! �������� ����
 };
 
 
-#endif // COORDIANTESCONTAINER_H
+#endif // COORDINATESCONTAINER_H

@@ -1,4 +1,4 @@
-#include "viewwindow.h"
+#include "mainview.h"
 #include "collisions.h"
 #include <QDebug>
 #include "loggingcategories.h"
@@ -8,7 +8,7 @@ ViewWindow::ViewWindow( QWidget *parent) : QGraphicsView(parent)
 {
     balls = new BallsContainer();
 
-    scene = new MyCustomScene(balls);
+    scene = new SimulationScene(balls);
     //triangle = new Traingle();
 
     setScene(scene);
