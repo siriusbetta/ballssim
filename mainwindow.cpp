@@ -4,8 +4,6 @@
 #include "loggingcategories.h"
 #include <QWidget>
 #include <QMouseEvent>
-#include "coordinates.h"
-#include "ball.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -16,8 +14,6 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setFixedSize(600, 600);
     view = new ViewWindow();
     view->installEventFilter(this);
-    //view->setMouseTracking(true);
-    //view->setCursor();
     this->setCentralWidget(view);
 }
 

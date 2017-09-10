@@ -5,7 +5,7 @@ class Coordinates
 {
 public:
 
-    Coordinates( double x, double y, double m_dX, double m_dY);
+    Coordinates( double x, double y, double m_dX = 0, double m_dY = 0);
 
     ~Coordinates();
 
