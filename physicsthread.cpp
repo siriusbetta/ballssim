@@ -25,31 +25,31 @@ double PhysicsThread::getForce(int a)
 
 void PhysicsThread::physicsCalculation()
 {
-    std::map<int, Coordinates> s = CoordinatesContainer::Instance().getContainer();
+    std::map<int, Coordinates> coordinats = CoordinatesContainer::Instance().getContainer();
 
     std::map<int, Coordinates>::iterator it;
-    for(it = s.begin(); it != s.end(); ++it)
+    for(it = coordinats.begin(); it != coordinats.end(); ++it)
     {
+        Coordinates coordinate1 = it->second;
         std::map<int, Coordinates>::iterator it1;
-        for(it1 = s.begin(); it1 != s.end(); ++it1)
+        for(it1 = coordinats.begin(); it1 != coordinats.end(); ++it1)
         {
-            int l = Coordinates::lengthBetweenTwoPoints(it->second, it1->second);
+            int length = Coordinates::lengthBetweenTwoPoints(it->second, it1->second);
 
-            if(l == 0) continue; /*< If length equal zero skips current iteration */
+            if(length == 0) continue; /*< If length equal zero skips current iteration */
 
-            double f = getForce(l);
+            double force = getForce(length);
 
-            Coordinates c1 = it->second;
-            Coordinates c2 = it1->second;
+            Coordinates coordinate2 = it1->second;
 
-            c1.m_dX = (f * (c2.getX() - c1.getX())/l) * 5; /*< Step to x */
-            c1.m_dY = (f * (c2.getY() - c1.getY())/l) * 5; /*< Step to y */
+            coordinate1.m_dX = (force * (coordinate2.getX() - coordinate1.getX())/l) * 5; /*< Step to x */
+            coordinate1.m_dY = (force * (coordinate2.getY() - coordinate1.getY())/l) * 5; /*< Step to y */
 
-            c1.m_x += c1.m_dX;
-            c1.m_y += c1.m_dY;
+            coordinate1.m_x += coordinate1.m_dX;
+            coordinate1.m_y += coordinate1.m_dY;
 
-            it->second = c1;
-            CoordinatesContainer::Instance().updateItem(it->first, c1);
+            it->second = coordinate1;
+            CoordinatesContainer::Instance().updateItem(it->first, coordinate1);
         }
     }
 }
