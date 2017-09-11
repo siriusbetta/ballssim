@@ -42,8 +42,8 @@ void PhysicsThread::physicsCalculation()
 
             Coordinates coordinate2 = it1->second;
 
-            coordinate1.m_dX = (force * (coordinate2.getX() - coordinate1.getX())/l) * 5; /*< Step to x */
-            coordinate1.m_dY = (force * (coordinate2.getY() - coordinate1.getY())/l) * 5; /*< Step to y */
+            coordinate1.m_dX = (force * (coordinate2.getX() - coordinate1.getX())/length) * 5; /*< Step to x */
+            coordinate1.m_dY = (force * (coordinate2.getY() - coordinate1.getY())/length) * 5; /*< Step to y */
 
             coordinate1.m_x += coordinate1.m_dX;
             coordinate1.m_y += coordinate1.m_dY;
